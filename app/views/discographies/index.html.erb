@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Discographies</h1>
+
+<div id="discographies">
+  <% @discographies.each do |discography| %>
+    <%= render discography %>
+    <p>
+      <%= link_to "Show this discography", discography %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New discography", new_discography_path %>

@@ -1,0 +1,2 @@
+class Discography < ApplicationRecord
+end

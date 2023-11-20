@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @discography %>
+
+<div>
+  <%= link_to "Edit this discography", edit_discography_path(@discography) %> |
+  <%= link_to "Back to discographies", discographies_path %>
+
+  <%= button_to "Destroy this discography", @discography, method: :delete %>
+</div>
