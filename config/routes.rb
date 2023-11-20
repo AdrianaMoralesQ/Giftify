@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # get 'home/index'
   get 'home/about'
   get 'home/contact'
+  get 'home/music'
+  get 'home/shop'
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
