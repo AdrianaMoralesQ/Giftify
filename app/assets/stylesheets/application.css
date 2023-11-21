@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
-h1,
-h3 {
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+
+h1 {
 	font-family: "Rubik Mono One", sans-serif !important;
+}
+body {
+	background-color: black !important;
 }

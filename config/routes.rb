@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :albums
   resources :musics
   resources :discographies
   # get 'home/index'
