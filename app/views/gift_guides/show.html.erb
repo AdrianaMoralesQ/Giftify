@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @gift_guide %>
+
+<div>
+  <%= link_to "Edit this gift guide", edit_gift_guide_path(@gift_guide) %> |
+  <%= link_to "Back to gift guides", gift_guides_path %>
+
+  <%= button_to "Destroy this gift guide", @gift_guide, method: :delete %>
+</div>

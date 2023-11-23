@@ -1,0 +1,2 @@
+module GiftGuidesHelper
+end

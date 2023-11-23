@@ -1,2 +1,0 @@
-class Discography < ApplicationRecord
-end

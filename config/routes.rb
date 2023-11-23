@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :albums
-  resources :musics
-  resources :discographies
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  # dbs:
+  resources :gift_guides
+  # user sessions:
+  resources :sessions, only: [:new, :create, :destroy]
   # get 'home/index'
   get 'home/about'
   get 'home/contact'
