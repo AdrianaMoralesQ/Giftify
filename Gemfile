@@ -20,9 +20,11 @@ end
 group :development do
   gem "web-console"
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+  gem 'bcrypt', '~> 3.1.13'
 end
 
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'bcrypt', '~> 3.1.13'
 end

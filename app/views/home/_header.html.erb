@@ -7,17 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <%= link_to 'About', home_about_path, class:'nav-link' %>
-        </li>
-        <li class="nav-item">
           <%= link_to 'Contact', home_contact_path, class:'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'Gift Guides', gift_guides_path, class:'nav-link' %>
+          <%= link_to 'Gift Ideas', gift_guides_path, class:'nav-link' %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Shop', home_shop_path, class:'nav-link' %>
-        </li>
+        <% if logged_in? %>
+      <li class="nav-item">
+        <%= link_to 'Profile', user_path(current_user) %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Log Out', logout_path, method: :delete %>
+      </li>
+        <% else %>
+      <li class="nav-item">
+        <%= link_to 'Log In', login_path %>
+      </li>
+    <% end %>
         </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  # dbs:
-  resources :gift_guides
-  # user sessions:
+  # User routes
+  resources :users, only: [:new, :create, :show]
+  # Session routes
   resources :sessions, only: [:new, :create, :destroy]
-  # get 'home/index'
-  get 'home/about'
+  get '/login', to: 'sessions#new', as: 'login'
+  get '/logout', to: 'sessions#destroy', as:'logout'
+  
+
+  # Custom route for user profile
+  get '/users/:id/profile', to: 'users#show', as: 'user_profile'
+  
+  # Other routes
+  resources :gift_guides
   get 'home/contact'
-  get 'home/music'
   get 'home/shop'
   root 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # Health check route
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
