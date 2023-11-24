@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_203722) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_194822) do
   create_table "albums", force: :cascade do |t|
     t.string "album_name"
     t.string "album_year"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_203722) do
     t.string "gift_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tenant_id"
   end
 
   create_table "musics", force: :cascade do |t|
