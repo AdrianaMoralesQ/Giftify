@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_24_194822) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_30_190442) do
   create_table "albums", force: :cascade do |t|
     t.string "album_name"
     t.string "album_year"
@@ -37,6 +37,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_194822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tenant_id"
+    t.integer "user_id", default: 1, null: false
+    t.index ["user_id"], name: "index_gift_guides_on_user_id"
   end
 
   create_table "musics", force: :cascade do |t|
@@ -56,4 +58,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_24_194822) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gift_guides", "users"
 end

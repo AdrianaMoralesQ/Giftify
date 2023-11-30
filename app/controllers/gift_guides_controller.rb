@@ -1,10 +1,17 @@
 class GiftGuidesController < ApplicationController
   before_action :set_gift_guide, only: %i[ show edit update destroy ]
-
+  before_action :require_login, except: [:index]
+  
   # GET /gift_guides or /gift_guides.json
   def index
-    @gift_guides = GiftGuide.all
+    @gift_guides = current_user.gift_guides
   end
+
+
+
+  # def index
+  #   @gift_guides = GiftGuide.all
+  # end
 
   # GET /gift_guides/1 or /gift_guides/1.json
   def show
@@ -21,7 +28,7 @@ class GiftGuidesController < ApplicationController
 
   # POST /gift_guides or /gift_guides.json
   def create
-    @gift_guide = GiftGuide.new(gift_guide_params)
+    @gift_guide = current_user.gift_guides.new(gift_guide_params)
 
     respond_to do |format|
       if @gift_guide.save
@@ -58,6 +65,12 @@ class GiftGuidesController < ApplicationController
   end
 
   private
+
+  def require_login
+    # Add your custom authentication logic if needed
+    redirect_to login_path unless current_user
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_gift_guide
       @gift_guide = GiftGuide.find(params[:id])
