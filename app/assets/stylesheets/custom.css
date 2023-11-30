@@ -1,0 +1,19 @@
+body {
+	background-color: #efe0df;
+}
+
+h2 {
+	font-family: "Courier New", Courier, monospace;
+	padding-top: 1rem;
+}
+h1,
+h3 {
+	font-family: Rubik Mono One;
+	color: #962547;
+	padding-top: 1rem;
+}
+
+.link {
+	color: #962547;
+	padding-top: 1rem;
+}

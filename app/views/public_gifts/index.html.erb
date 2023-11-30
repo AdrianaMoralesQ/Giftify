@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<p><%= notice %></p>
 
-<h1>Public gifts</h1>
+<h1>Giftify Ideas</h1>
 
-<div id="public_gifts">
+<div class="card" id="public_gifts">
+<div class="card-body">
   <% @public_gifts.each do |public_gift| %>
     <%= render public_gift %>
-    <p>
-      <%= link_to "Show this public gift", public_gift %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New public gift", new_public_gift_path %>
+</div>
+<div class="container link">
+<%= link_to "Add a gift idea", new_public_gift_path %>
+</div>

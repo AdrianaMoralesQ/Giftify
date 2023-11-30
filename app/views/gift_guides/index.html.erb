@@ -2,7 +2,8 @@
 
 <h1>Gift Ideas</h1>
 
-<div id="gift_guides">
+<div class="card" id="gift_guides">
+<div class="card-body">
   <% @gift_guides.each do |gift_guide| %>
     <%= render gift_guide %>
     <p>
@@ -10,5 +11,7 @@
     </p>
   <% end %>
 </div>
-
+</div>
+<div class="container link">
 <%= link_to "New gift guide", new_gift_guide_path %>
+</div>

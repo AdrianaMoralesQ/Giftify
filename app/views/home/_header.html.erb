@@ -15,9 +15,13 @@
         <li class="nav-item" style="font-color: #912060">
           <%= link_to 'Your Ideas', gift_guides_path, class:'nav-link' %>
         </li>
-      <li class="nav-item">
+      <%
+=begin%>
+ <li class="nav-item">
         <%= link_to 'Profile', user_path(current_user), class:'nav-link' %>
-      </li>
+      </li> 
+<%
+=end%>
       <li class="nav-item">
         <%= link_to 'Log Out', logout_path, method: :delete, class:'nav-link'%>
       </li>
