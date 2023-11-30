@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :public_gifts
   # User routes
   resources :users, only: [:new, :create, :show]
   # Session routes
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   
   # Other routes
   resources :gift_guides
+  resources :public_gifts
   get 'home/contact'
   get 'home/shop'
   root 'home#index'

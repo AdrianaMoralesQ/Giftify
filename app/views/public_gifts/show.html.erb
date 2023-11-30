@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @public_gift %>
+
+<div>
+  <%= link_to "Edit this public gift", edit_public_gift_path(@public_gift) %> |
+  <%= link_to "Back to public gifts", public_gifts_path %>
+
+  <%= button_to "Destroy this public gift", @public_gift, method: :delete %>
+</div>
