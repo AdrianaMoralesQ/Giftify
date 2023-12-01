@@ -67,6 +67,6 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 EXPOSE 3000
 
 # Migrate database
-RUN ./bin/rails db:migrate
+# RUN ./bin/rails db:migrate
 
 CMD ["./bin/rails", "server"]
