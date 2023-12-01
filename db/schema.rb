@@ -11,6 +11,24 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_11_30_202941) do
+  create_table "albums", force: :cascade do |t|
+    t.string "album_name"
+    t.string "album_year"
+    t.string "spotify"
+    t.string "album_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "discographies", force: :cascade do |t|
+    t.string "album_name"
+    t.string "artist_name"
+    t.string "string"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gift_guides", force: :cascade do |t|
     t.string "recipient_name"
     t.string "gift_name"
@@ -21,6 +39,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_202941) do
     t.integer "tenant_id"
     t.integer "user_id", default: 1, null: false
     t.index ["user_id"], name: "index_gift_guides_on_user_id"
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.string "album_name"
+    t.string "album_type"
+    t.string "year"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "public_gifts", force: :cascade do |t|
