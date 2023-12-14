@@ -17,3 +17,22 @@ h3 {
 	color: #962547;
 	padding-top: 1rem;
 }
+button,
+.btn {
+	background-color: #962547;
+	font-size: 18px;
+	font-weight: 200;
+	border-radius: 5px;
+	padding: 15px;
+	font-family: "Courier New", Courier, monospace;
+	color: #efe0df;
+	border-style: none;
+	margin-top: 1rem;
+}
+
+.new_user {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 5rem;
+}
