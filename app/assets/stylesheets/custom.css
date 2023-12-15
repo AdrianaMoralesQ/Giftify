@@ -36,3 +36,6 @@ button,
 	align-items: center;
 	margin: 5rem;
 }
+.spacer {
+	padding-top: 20px;
+}
