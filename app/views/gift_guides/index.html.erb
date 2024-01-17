@@ -1,14 +1,37 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Gift Ideas</h1>
+<div class='centered-header'>
+<h1>Your Gift Ideas</h1>
+      <div class="container link">
+      <%= link_to "+Gift", new_gift_guide_path, class: 'btn' %>
+      </div>
+</div>
+<div class='align'>
+  <%= form_tag(gift_guides_path, class:'column', method: :get) do %>
+    <%= label_tag 'Order:' %>
+    <%= select_tag 'order', options_for_select(
+      {
+        'Recipient Name A-Z' => 'recipient_name ASC',
+        'Recipient Name Z-A' => 'recipient_name DESC',
+        'Gift Name A-Z' => 'gift_name ASC',
+        'Gift Name Z-A' => 'gift_name DESC',
+        'Created Last' => 'created_at DESC',
+        'Created First' => 'created_at ASC'
+      },
+      params[:order]
+    ), class: 'column form-control' %>
+      <%= label_tag 'Show:' %>
+    <%= select_tag 'limit', options_for_select([4, 8, 12, 24], params[:limit]), class: 'column-small form-control' %>
+    <%= submit_tag 'Go', class: 'column btn btn-secondary' %>
+  <% end %>
+</div>
 
 <div class="card" id="gift_guides">
-<div class="card-body">
+<div class="card-body-main">
   <% @gift_guides.each do |gift_guide| %>
     <%= render gift_guide %>
   <% end %>
 </div>
 </div>
 <div class="container link">
-<%= link_to "Add a gift idea", new_gift_guide_path %>
-</div>
+      <%= link_to "+Gift", new_gift_guide_path, class: 'btn' %>
+      </div>

@@ -2,9 +2,13 @@
 
 <%= render @gift_guide %>
 
-<div>
-  <%= link_to "Edit this gift guide", edit_gift_guide_path(@gift_guide) %> |
-  <%= link_to "Back to gift guides", gift_guides_path %>
+<div class='centered'>
+   <%= link_to(edit_gift_guide_path(@gift_guide), class: 'btn') do %>
+    <%= image_tag 'edit.png', alt: 'Edit', height: '25' %>
+  <% end %>
 
-  <%= button_to "Destroy this gift guide", @gift_guide, method: :delete %>
+  <%= button_to(@gift_guide, method: :delete, class: 'delete') do %>
+    <%= image_tag 'delete.png', alt: 'Delete', height: '25' %>
+  <% end %>
+  <%= link_to "Back to gift ideas", gift_guides_path, class: 'btn' %>
 </div>

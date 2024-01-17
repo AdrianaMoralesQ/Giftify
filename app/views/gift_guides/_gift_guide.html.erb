@@ -1,8 +1,9 @@
+  <%= link_to gift_guide do %>
 <div id="<%= dom_id gift_guide %>">
 <div class="card-body">
   <p>
     <strong>Recipient:</strong>
-    <%= gift_guide.recipient_name %>
+    <%= gift_guide.recipient_name%>
   </p>
 
   <p>
@@ -12,11 +13,12 @@
 
   <p>
     <strong>Gift link:</strong>
-    <%= link_to "Go to Store", gift_guide.gift_link %>
+    <%= link_to "Go to store", gift_guide.gift_link, class:'link' %>
   </p>
 
-  <p>
-    <%= image_tag gift_guide.gift_image, alt: 'Gift Image', style: 'width: 20vw;' %>
+  <p class="centered">
+    <%= image_tag gift_guide.gift_image, alt: 'Gift Image', style: 'width: 40vw;' %>
   </p>
 </div>
 </div>
+<% end %>

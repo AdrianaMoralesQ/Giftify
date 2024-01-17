@@ -3,15 +3,23 @@ class GiftGuidesController < ApplicationController
   before_action :require_login, except: [:index]
   
   # GET /gift_guides or /gift_guides.json
-  def index
-    @gift_guides = current_user.gift_guides
+ def index
+    order_param = params[:order] || 'recipient_name ASC'
+    limit_param = params[:limit] || 4
+
+    # Ensure that the order_param is a valid option to avoid SQL injection
+    valid_order_options = [
+      'recipient_name ASC', 'recipient_name DESC',
+      'gift_name ASC', 'gift_name DESC',
+      'created_at ASC', 'created_at DESC'
+    ]
+
+    order_param = valid_order_options.include?(order_param) ? order_param : 'recipient_name ASC'
+
+    @gift_guides = current_user.gift_guides.order(order_param).limit(limit_param)
   end
 
 
-
-  # def index
-  #   @gift_guides = GiftGuide.all
-  # end
 
   # GET /gift_guides/1 or /gift_guides/1.json
   def show

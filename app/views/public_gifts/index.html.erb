@@ -1,9 +1,9 @@
 <p><%= notice %></p>
 
-<h1>Giftify Ideas</h1>
+<h1>Public Gift Ideas</h1>
 
 <div class="card" id="public_gifts">
-<div class="card-body">
+<div class="card-body-main">
   <% @public_gifts.each do |public_gift| %>
     <%= render public_gift %>
   <% end %>
