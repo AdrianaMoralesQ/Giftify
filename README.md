@@ -1,24 +1,11 @@
 # README
+Giftify
+Wishlist database - Make personalized gift lists and contribute to Public Gift Ideas
+Live on Render
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Ruby version: 7.1.0
 
 * Deployment instructions
+  Rails Server
 
 * ...
