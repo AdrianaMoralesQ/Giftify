@@ -11,7 +11,6 @@ class PublicGiftsController < ApplicationController
     valid_order_options = [
       'recipient ASC', 'recipient DESC',
       'gift_name ASC', 'gift_name DESC',
-      'created_at ASC', 'created_at DESC'
     ]
 
     order_param = valid_order_options.include?(order_param) ? order_param : 'recipient ASC'
