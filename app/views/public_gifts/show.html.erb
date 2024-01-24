@@ -2,9 +2,13 @@
 
 <%= render @public_gift %>
 
-<div>
-  <%= link_to "Edit this public gift", edit_public_gift_path(@public_gift), class: 'btn' %> |
+<div class='centered'>
+  <%= link_to(edit_public_gift_path(@public_gift), class: 'btn') do %> 
+    <%= image_tag 'edit.png', alt: 'Edit', height: '25' %>
+  <% end %>
+  <%= button_to(@public_gift, method: :delete, class: 'delete') do %>
+   <%= image_tag 'delete.png', alt: 'Delete', height: '25' %>
+  <% end %>
   <%= link_to "Back to public gifts", public_gifts_path, class: 'btn' %>
 
-  <%= button_to "Destroy this public gift", @public_gift, method: :delete, class: 'btn' %>
 </div>

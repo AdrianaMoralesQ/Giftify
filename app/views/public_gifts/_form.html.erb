@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <div class='form-stretch'>
   <div>
     <%= form.label :recipient, style: "display: block" %>
     <%= form.select :recipient, options_for_select(['Baby', 'Children', 'Teens', 'Women', 'Men', 'Gender Neutral', 'Pets']) %>
@@ -32,6 +33,7 @@
   </div>
 
   <div>
-    <%= form.submit%>
+    <%= form.submit class: 'btn'%>
   </div>
 <% end %>
+</div>

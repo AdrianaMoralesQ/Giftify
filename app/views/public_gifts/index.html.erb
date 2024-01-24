@@ -1,6 +1,33 @@
 <p><%= notice %></p>
-
+<div class='centered-header'>
 <h1>Public Gift Ideas</h1>
+    <div class="container link">
+    <%= link_to "+ Gift", new_public_gift_path, class: 'btn' %>
+    </div>
+</div>
+<div class='align'>
+  <%= form_tag(public_gifts_path, class:'column', method: :get) do %>
+  <%
+=begin%>
+ <%= label_tag 'Order:' %>
+    <%= select_tag 'order', options_for_select(
+      {
+        'Recipient Name A-Z' => 'recipient_name ASC',
+        'Recipient Name Z-A' => 'recipient_name DESC',
+        'Gift Name A-Z' => 'gift_name ASC',
+        'Gift Name Z-A' => 'gift_name DESC',
+      },
+      params[:order]
+    ), class: 'column form-control' %> 
+<%
+=end%>
+    <%= image_tag 'filter.png', alt: 'Filter Image', class: 'filter' %>
+    <%= select_tag 'recipient', options_for_select(['Baby', 'Children', 'Teens', 'Women', 'Men', 'Gender Neutral', 'Pets'], params[:recipient]), class: 'column form-control input' %>
+      <%= label_tag 'Show:' %>
+    <%= select_tag 'limit', options_for_select([4, 8, 12, 24], params[:limit]), class: 'column-small form-control' %>
+    <%= submit_tag 'Go', class: 'go' %>
+  <% end %>
+</div>
 
 <div class="card" id="public_gifts">
 <div class="card-body-main">
@@ -10,5 +37,5 @@
 </div>
 </div>
 <div class="container link">
-<%= link_to "Add a gift idea", new_public_gift_path, class: 'btn' %>
+<%= link_to "+ Gift", new_public_gift_path, class: 'btn' %>
 </div>
