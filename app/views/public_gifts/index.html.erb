@@ -1,41 +1,35 @@
 <p><%= notice %></p>
 <div class='centered-header'>
 <h1>Public Gift Ideas</h1>
-    <div class="container link">
-    <%= link_to "+ Gift", new_public_gift_path, class: 'btn' %>
+    <div class="container link float-right">
+    <%= link_to "+ Gift", new_public_gift_path, class: 'btn new-gift' %>
     </div>
 </div>
 <div class='align'>
   <%= form_tag(public_gifts_path, class:'column', method: :get) do %>
-  <%
-=begin%>
- <%= label_tag 'Order:' %>
-    <%= select_tag 'order', options_for_select(
-      {
-        'Recipient Name A-Z' => 'recipient_name ASC',
-        'Recipient Name Z-A' => 'recipient_name DESC',
-        'Gift Name A-Z' => 'gift_name ASC',
-        'Gift Name Z-A' => 'gift_name DESC',
-      },
-      params[:order]
-    ), class: 'column form-control' %> 
-<%
-=end%>
     <%= image_tag 'filter.png', alt: 'Filter Image', class: 'filter' %>
-    <%= select_tag 'recipient', options_for_select(['Baby', 'Children', 'Teens', 'Women', 'Men', 'Gender Neutral', 'Pets'], params[:recipient]), class: 'column form-control input' %>
+    <%= select_tag 'recipient', options_for_select(['All','Baby', 'Children', 'Teens', 'Women', 'Men', 'Gender Neutral', 'Pets'], params[:recipient]), class: 'column form-control input' %>
       <%= label_tag 'Show:' %>
-    <%= select_tag 'limit', options_for_select([4, 8, 12, 24], params[:limit]), class: 'column-small form-control' %>
+    <%= select_tag 'limit', options_for_select([4, 8, 12, 24, 50, 100], params[:limit]), class: 'column-small form-control' %>
     <%= submit_tag 'Go', class: 'go' %>
   <% end %>
 </div>
 
-<div class="card" id="public_gifts">
-<div class="card-body-main">
-  <% @public_gifts.each do |public_gift| %>
-    <%= render public_gift %>
+<% if @public_gifts.present? %>
+  <div class="card" id="public_gifts">
+    <div class="card-body-main">
+      <% @public_gifts.each do |public_gift| %>
+        <%= render public_gift %>
+      <% end %>
+    </div>
+
+  <% else %>
+  <div class='card'>
+  <div class='text-center big-margin'>
+  <p class='text-muted'>No gifts found in this category.</p>
+  <p class='text-muted font-weight-bold'>Be the first to add one!</p>
+  </div>
+  </div>
   <% end %>
-</div>
-</div>
-<div class="container link">
-<%= link_to "+ Gift", new_public_gift_path, class: 'btn' %>
-</div>
+  </div>
+

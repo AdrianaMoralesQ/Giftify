@@ -2,7 +2,7 @@
 <div class='centered-header'>
 <h1>Your Gift Ideas</h1>
       <div class="container link">
-      <%= link_to "+Gift", new_gift_guide_path, class: 'btn' %>
+      <%= link_to "+Gift", new_gift_guide_path, class: 'btn new-gift' %>
       </div>
 </div>
 <div class='align'>
@@ -20,7 +20,7 @@
       params[:order]
     ), class: 'column form-control' %>
       <%= label_tag 'Show:' %>
-    <%= select_tag 'limit', options_for_select([4, 8, 12, 24], params[:limit]), class: 'column-small form-control' %>
+    <%= select_tag 'limit', options_for_select([4, 8, 12, 24, 100], params[:limit]), class: 'column-small form-control' %>
     <%= submit_tag 'Go', class: 'column btn btn-secondary' %>
   <% end %>
 </div>
@@ -32,6 +32,3 @@
   <% end %>
 </div>
 </div>
-<div class="container link">
-      <%= link_to "+Gift", new_gift_guide_path, class: 'btn' %>
-      </div>

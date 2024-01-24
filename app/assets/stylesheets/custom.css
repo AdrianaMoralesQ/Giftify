@@ -159,21 +159,19 @@ input.btn {
 }
 .filter {
 	background-color: #962547;
-	font-size: 18px;
-	font-weight: 200;
 	border-radius: 5px;
-	padding: 0px;
+	padding: 10px;
 	height: 70px;
 	width: auto;
 	border-radius: 6px;
-	margin: 5px;
+	margin: 10px;
 }
 .go {
 	background-color: #efe0df;
 	font-size: 20px;
+	font-weight: 400;
 	color: #962547;
 	font-family: "Courier New", Courier, monospace;
-	font-weight: 200;
 	border-radius: 5px;
 	padding: 0px;
 	height: 70px;
@@ -185,4 +183,10 @@ input.btn {
 .column.form-control.input {
 	width: 30vw;
 	margin-right: 1rem;
+}
+.big-margin {
+	margin: 5rem 4rem;
+}
+.new-gift {
+	position: fixed;
 }

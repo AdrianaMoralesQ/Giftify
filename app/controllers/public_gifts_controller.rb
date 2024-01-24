@@ -17,10 +17,14 @@ class PublicGiftsController < ApplicationController
     order_param = valid_order_options.include?(order_param) ? order_param : 'recipient ASC'
     
     conditions = {}
-    conditions[:recipient] = recipient_type_param if recipient_type_param.present?
-    
-    @public_gifts = PublicGift.where(conditions).order(order_param).limit(limit_param)
+   if params[:recipient] == PublicGift::DEFAULT_RECIPIENT_TYPE
+    conditions[:recipient] = ['All', 'Baby', 'Children', 'Teens', 'Women', 'Men', 'Gender Neutral', 'Pets']
+  else
+    conditions[:recipient] = params[:recipient] if params[:recipient].present?
   end
+
+  @public_gifts = PublicGift.where(conditions).order(order_param).limit(limit_param)
+end
 
   # GET /public_gifts/1 or /public_gifts/1.json
   def show
@@ -38,6 +42,7 @@ class PublicGiftsController < ApplicationController
   # POST /public_gifts or /public_gifts.json
   def create
     @public_gift = PublicGift.new(public_gift_params)
+    @public_gift.recipient ||= PublicGift::DEFAULT_RECIPIENT_TYPE
 
     respond_to do |format|
       if @public_gift.save
